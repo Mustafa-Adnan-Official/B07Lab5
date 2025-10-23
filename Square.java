@@ -32,7 +32,8 @@ public class Square {
 	 * @return the total distance around the square
 	 */
 	public double perimeter() {
-		return A.distance(B) + B.distance(C) + C.distance(D) + D.distance(A);
+		double sideLength = A.distance(B);
+		return side * 4.0;
 	}
 	
 	/**
@@ -44,24 +45,33 @@ public class Square {
 	 * @return if square or not
 	 */
 	public static boolean isSquare(Point A, Point B, Point C, Point D) {
+		final double EPSILON = 1e-9;
+		
 		//For side lengths
 		double side1 = A.distance(B);
 		double side2 = B.distance(C);
 		double side3 = C.distance(D);
 		double side4 = D.distance(A);
 		
+
+		
+		
 		//For diagonal length
 		double diagLength1 = A.distance(C);
 		double diagLength2 = D.distance(B);
 		
 		//If all side lengths are equal than: square or rhombus
-		boolean sideLengthEqual = (side1 == side2) && (side1 == side3) && (side1 == side4) && (side2 == side3) && (side2 == side4) && (side3 == side4);
+		boolean sideLengthEqual = Math.abs(side1 - side2)<EPSILON && Math.abs(side1 - side3)<EPSILON && Math.abs(side1 - side4)<EPSILON;
 	
 		//If all diagonals are equal than definently square
-		boolean diagLengthEqual = (diagLength1 == diagLength2);
+		boolean diagLengthEqual = Math.abs(diagLength1 - diagLength2)<EPSILON;
+		
+		//Safety check: pythagoreus theorem should hold
+		boolean pythagorasHolds = Math.abs(diagLength1*diagLength1 - (2.0*side1*side1)) < EPSILON;
+		
 		
 		//return if square
-		return sideLengthEqual && diagLengthEqual;
+		return sideLengthEqual && diagLengthEqual && pythagorasHolds; 
 	
 	}
 	
