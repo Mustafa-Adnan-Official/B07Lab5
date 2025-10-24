@@ -1,6 +1,5 @@
 package B07Lab5;
 
-import java.awt.Point;
 
 public class Square {
 	
