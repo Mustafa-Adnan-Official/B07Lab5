@@ -1,7 +1,5 @@
 package B07Lab5;
 
-import java.awt.Point;
-
 public class Square {
 	
 	/**
@@ -33,7 +31,7 @@ public class Square {
 	 */
 	public double perimeter() {
 		double sideLength = A.distance(B);
-		return side * 4.0;
+		return sideLength * 4.0;
 	}
 	
 	/**
