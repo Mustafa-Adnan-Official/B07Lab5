@@ -33,7 +33,7 @@ public class Square {
 	 */
 	public double perimeter() {
 		double sideLength = A.distance(B);
-		return side * 4.0;
+		return sideLength * 4.0;
 	}
 	
 	/**
@@ -45,6 +45,7 @@ public class Square {
 	 * @return if square or not
 	 */
 	public static boolean isSquare(Point A, Point B, Point C, Point D) {
+		
 		final double EPSILON = 1e-9;
 		
 		//For side lengths
@@ -52,6 +53,10 @@ public class Square {
 		double side2 = B.distance(C);
 		double side3 = C.distance(D);
 		double side4 = D.distance(A);
+		
+		if (side1 < EPSILON || side2 < EPSILON || side3 < EPSILON || side4 < EPSILON) {
+			return false;
+		}
 		
 
 		
