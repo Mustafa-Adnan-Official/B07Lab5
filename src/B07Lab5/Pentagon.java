@@ -16,7 +16,7 @@ public class Pentagon {
 	}
 	
 	public double perimeter() {
-		return A.distance(B) + B.distance(C) + C.distance(D) + D.distance(E) + E.distance(A)
+		return A.distance(B) + B.distance(C) + C.distance(D) + D.distance(E) + E.distance(A);
 	}
 	
 	public boolean isRegular() {
