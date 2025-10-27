@@ -38,4 +38,17 @@ public class PentagonTest {
         Pentagon p = new Pentagon(A, B, C, D, E);
         assertFalse(p.isRegular());
     }
+
+    // Extra test case
+    @Test
+    public void testIsRegular_falseForCollinearPoints() {
+        Point A = new Point(0, 0);
+        Point B = new Point(2, 0);
+        Point C = new Point(4, 0); 
+        Point D = new Point(2, 3);
+        Point E = new Point(0, 3);
+
+        Pentagon p = new Pentagon(A, B, C, D, E);
+        assertFalse(p.isRegular());
+    }
 }
